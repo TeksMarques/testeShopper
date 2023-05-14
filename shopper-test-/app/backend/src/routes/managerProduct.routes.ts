@@ -1,15 +1,11 @@
 import { Router } from 'express';
 
-import { ManagerProductController } from '../controllers/managerProduct.controller';
+import { validatePrices, updatePrices, getProducts } from '../controllers/product.controller';
 
 const router = Router();
 
-router.get('/products', ManagerProductController.getAllProducts);
+router.get('/products', (req: any, res: any) => getProducts(req, res));
 
-router.get('/products/:code', ManagerProductController.getProductByCode);
-
-router.post('/products', ManagerProductController.createProduct);
-
-router.put('/products/:code', ManagerProductController.updateProduct);
+router.post('/products', (req: any, res: any) => validatePrices(req, res));
 
 export default router;

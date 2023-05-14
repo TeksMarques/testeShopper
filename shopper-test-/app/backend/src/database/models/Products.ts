@@ -2,7 +2,7 @@ import { INTEGER, STRING, NUMBER, Model } from 'sequelize';
 import db from '.';
 
 class ProductModel extends Model {
-  declare id: number;
+  declare code: number;
   declare name: string;
   declare cost_price: number;
   declare sales_price: number;

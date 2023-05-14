@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "esModuleInterop": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "outDir": "./dist",
+        "sourceMap": true,
+        "target": "es6",
+        "resolveJsonModule": true,
+        "lib": ["es2015"],
+        "typeRoots": ["node_modules/@types"]
+    }
+  }
