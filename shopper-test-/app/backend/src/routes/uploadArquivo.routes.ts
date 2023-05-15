@@ -28,9 +28,11 @@ export const validatePrices = async (req: Request, res: Response) => {
     return res.status(400).json({ message: 'Arquivo CSV não encontrado' });
   }
 
-  const csvFile = req.files.csvFile.path as any;
+  const csvFile = fs.createReadStream(__dirname+'/fs_read.csv').pipe(csvParser());
+  console.log(csvFile);
+ 
   try {
-    const productsFile = csvParser(csvFile);
+    const productsFile = csvFile as unknown as Array<any>;
 
     const requiredFields = ['product_code', 'new_price'];
     const missingFields = requiredFields.filter(
@@ -102,7 +104,7 @@ export const validatePrices = async (req: Request, res: Response) => {
       })
     );
 
-    fs.unlinkSync(csvFile);
+    fs.unlinkSync(req.file.path);
 
     res.status(200).json({ products: validatedProducts });
   } catch (error) {

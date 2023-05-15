@@ -2,10 +2,10 @@ import { Router } from 'express';
 
 import { updatePrices, getProducts } from '../controllers/product.controller';
 
-const router = Router();
+const priceRouter = Router();
 
-router.get('/products', (req: any, res: any) => getProducts(req, res));
+priceRouter.get('/products', (req: any, res: any) => getProducts(req, res));
 
-router.post('/update', (req: any, res: any) => updatePrices(req, res));
+priceRouter.post('/update', (req: any, res: any) => updatePrices(req, res));
 
-export default router;
+export default priceRouter;

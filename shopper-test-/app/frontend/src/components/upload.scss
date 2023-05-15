@@ -1,0 +1,59 @@
+
+.container__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    } 
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }   
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;    
+    margin-top: 20px;
+  }
+  
+  .container__input {
+    margin-bottom: 10px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    border: 2px solid #ccc;
+  }
+  
+  button {
+    padding: 4px 8px;
+    margin-bottom: 10px;
+  }
+  
+  /* Media Query para tornar a tabela responsiva em dispositivos móveis */
+  @media (max-width: 600px) {
+    table {
+      font-size: 14px;
+    }
+  
+    table th,
+    table td {
+      padding: 4px;
+    }
+  }
+  

@@ -1,5 +1,6 @@
-import React, { useState }  from 'react';
+import { useState }  from 'react';
 import axios from 'axios';
+import './upload.scss';
 
 const UploadForm = () => {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -54,8 +55,14 @@ const UploadForm = () => {
   
     return (
       <div>
-        <input type="file" onChange={handleFileChange} />
-        <button onClick={handleUpload}>Enviar</button>     
+        <div className='container__title'>
+        <h1 >Teste Técnico Shopper</h1>
+        <h2>Upload de Arquivo CSV</h2>
+        </div>
+      
+      <div className='container'>
+        <input className='container__input' type="file" onChange={handleFileChange} />
+        <button onClick={handleUpload}>Validar</button>     
   
         {arquivos.length > 0 && (
         <div>
@@ -66,8 +73,7 @@ const UploadForm = () => {
                 <th>Código</th>
                 <th>Nome</th>
                 <th>Preço Atual</th>
-                <th>Novo Preço</th>
-                <th></th> {/* Coluna para o botão "Atualizar" */}
+                <th>Novo Preço</th>               
               </tr>
             </thead>
             <tbody>
@@ -86,6 +92,7 @@ const UploadForm = () => {
         </div>
       )}
         
+      </div>
       </div>
     );
   }

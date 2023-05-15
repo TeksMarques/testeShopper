@@ -1,8 +1,9 @@
 import UploadForm from './components/upload.jsx'
+import './App.css';
 
 function App() {
   return (    
-      <div>
+      <div>        
         <UploadForm />
       </div> 
     
