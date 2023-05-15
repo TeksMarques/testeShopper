@@ -1,5 +1,6 @@
 import express from 'express';
 import priceRoutes from '../backend/src/routes/managerProduct.routes';
+import router from './src/routes/uploadArquivo.routes';
 
 class App {
   public app: express.Express;
@@ -24,6 +25,7 @@ class App {
     this.app.use(express.json());
     this.app.use(accessControl);
     this.app.use(priceRoutes);
+    this.app.use(router);
     
   }
 
