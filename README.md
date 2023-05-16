@@ -12,7 +12,7 @@ Este é um sistema para atualização de preços em uma loja de e-commerce. Perm
 # Tecnologias utilizadas
 
 - Node.js
-- MySQL
+- MySQL 8
 - Vite + React.js
 
 # Instalação
@@ -29,7 +29,7 @@ Este é um sistema para atualização de preços em uma loja de e-commerce. Perm
 
     npm run start:dev
 
-- Em outro terminal, abre o diretório e instale as dependências:
+- Em outro terminal, abre o diretório do frontend e instale as dependências:
 
     npm install
 
