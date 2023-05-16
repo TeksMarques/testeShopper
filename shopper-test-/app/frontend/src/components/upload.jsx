@@ -4,7 +4,8 @@ import './upload.scss';
 
 const UploadForm = () => {
     const [selectedFile, setSelectedFile] = useState(null);
-    const [validatedProducts, setValidatedProducts] = useState([]);
+    const [validatedProducts, setValidatedProducts] = useState([]);    
+
   
     const handleFileChange = (event) => {
       setSelectedFile(event.target.files[0]);
@@ -24,11 +25,12 @@ const UploadForm = () => {
           // Lide com erros de upload
         });
     };
-
+   
     const handleUpdateAllPrices = () => {
         axios.post('http://localhost:3001/update', validatedProducts)
             .then((response) => {
                 console.log(response.data);
+                
                 // Lide com a resposta do servidor
             })
             .catch((error) => {
@@ -37,21 +39,7 @@ const UploadForm = () => {
             });
     };
 
-
-    const arquivos = [
-        {
-            "product_code": "1",
-            "name": "Produto 1",
-            "current_price": "10.00",
-            "new_price": "9.00"
-        },
-        {
-            "product_code": "2",
-            "name": "Produto 2",
-            "current_price": "20.00",
-            "new_price": "18.00"
-        },
-    ];
+    const isError = validatedProducts.some((product) => !(product.error == '' || product.error == null));
   
     return (
       <div>
@@ -64,7 +52,7 @@ const UploadForm = () => {
         <input className='container__input' type="file" onChange={handleFileChange} />
         <button onClick={handleUpload}>Validar</button>     
   
-        {arquivos.length > 0 && (
+        {validatedProducts.length > 0 && (
         <div>
           <h2>Produtos Validados</h2>
           <table>
@@ -73,22 +61,24 @@ const UploadForm = () => {
                 <th>Código</th>
                 <th>Nome</th>
                 <th>Preço Atual</th>
-                <th>Novo Preço</th>               
+                <th>Novo Preço</th>  
+                <th>Status</th>              
               </tr>
             </thead>
             <tbody>
-              {arquivos.map((product) => (
+              {validatedProducts.map((product) => (
                 <tr key={product.product_code}>
-                  <td>{product.product_code}</td>
+                  <td>{product.code}</td>
                   <td>{product.name}</td>
-                  <td>{product.current_price}</td>
-                  <td>{product.new_price}</td>                  
+                  <td>{product.sales_price}</td>
+                  <td>{product.new_price}</td> 
+                  <td>{product.error}</td>                   
                 </tr>
               ))}
             </tbody>
           </table>
 
-          <button onClick={handleUpdateAllPrices}>Atualizar Valores</button>
+          <button onClick={handleUpdateAllPrices} disabled={isError}>Atualizar Valores</button>
         </div>
       )}
         

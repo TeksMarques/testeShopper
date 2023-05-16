@@ -4,9 +4,9 @@ import ProductModel from './Products';
 
 class PackModel extends Model {
   declare id: number;
-  declare name: string;
-  declare cost_price: number;
-  declare sales_price: number;
+  declare pack_id: string;
+  declare product_id: number;
+  declare qty: number;
 }
 
 PackModel.init({
@@ -48,7 +48,5 @@ PackModel.init({
   tableName: 'packs',
 });
 
-PackModel.belongsTo(ProductModel, { as: 'code', foreignKey: 'pack_id' });
-PackModel.belongsTo(ProductModel, { as: 'code', foreignKey: 'product_id' });
 
 export default PackModel;

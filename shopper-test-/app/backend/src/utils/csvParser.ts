@@ -1,22 +1,20 @@
 import csv from 'csv-parser';
 import fs from 'fs';
+import UpdateProduct from '../interface/UpdateProduct';
 
-const csvParser = (filePath: string): Promise<any[]> => {
+const csvParser = (filePath: string): Promise<UpdateProduct[]> => {
     return new Promise((resolve, reject) => {
       const results: any[] = [];
   
       fs.createReadStream(filePath)
         .pipe(csv())
-        .on('data', (data) => {
-          // Processar cada linha do arquivo CSV
+        .on('data', (data) => { 
           results.push(data);
         })
         .on('end', () => {
-          // Ao final do processamento, retornar os resultados
           resolve(results);
         })
         .on('error', (error) => {
-          // Em caso de erro, rejeitar a Promise com o erro
           reject(error);
         });
     });

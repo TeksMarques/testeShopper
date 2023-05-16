@@ -44,6 +44,16 @@
     padding: 4px 8px;
     margin-bottom: 10px;
   }
+
+  button:disabled {
+    background-color: #fcfafa;
+    color: #b32f2fe8;
+  }
+
+  button:enabled {
+    background-color: #fcf5f5;
+    color: #0c0b0b;
+  }
   
   /* Media Query para tornar a tabela responsiva em dispositivos móveis */
   @media (max-width: 600px) {

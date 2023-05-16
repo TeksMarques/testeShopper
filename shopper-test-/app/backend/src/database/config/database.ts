@@ -1,4 +1,4 @@
-import mysql from 'mysql';
+const mysql = require('mysql2');
 
 export const connection = mysql.createConnection({
   user: process.env.DB_USER || 'root',
@@ -6,7 +6,7 @@ export const connection = mysql.createConnection({
   database: 'SHOPPERDB',
   host: process.env.DB_HOST || '127.0.0.1',
   port: Number(process.env.DB_PORT) || 3306,
-  timeout: 60000  
+  connectTimeout: 60000  
 });
 
 // Função para conectar ao banco de dados
